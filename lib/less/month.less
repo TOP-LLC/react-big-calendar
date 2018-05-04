@@ -41,6 +41,19 @@
   -webkit-user-select: none;
 
   height: 100%; // ie-fix
+
+  .rbc-header {
+    border-bottom: 1px solid @cell-border;
+  }
+
+  .rbc-header + .rbc-header {
+    border-left: 1px solid @cell-border;
+  }
+
+  .rbc-rtl & .rbc-header + .rbc-header {
+    border-left-width: 0;
+    border-right: 1px solid @cell-border;
+  }
 }
 
 .rbc-month-header {
@@ -52,8 +65,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  flex: 1 0 0; // postcss will remove the 0px here hence the duplication below
-  flex-basis: 0px;
+  flex: 1 0 0;
   overflow: hidden;
 
   height: 100%; // ie-fix
@@ -64,8 +76,6 @@
 }
 
 .rbc-date-cell {
-  flex: 1 1 0;
-  min-width: 0;
   padding-right: 5px;
   text-align: right;
 
@@ -90,8 +100,6 @@
 }
 
 .rbc-day-bg {
-  flex: 1 0 0%;
-
   & + & {
     border-left: 1px solid @cell-border;
   }
