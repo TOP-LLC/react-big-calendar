@@ -23,11 +23,7 @@ class Week extends React.Component {
 Week.navigate = (date, action) => {
   switch (action) {
     case navigate.PREVIOUS:
-<<<<<<< HEAD
-      return dates.add(date, -1, 'week')
-=======
       return dates.add(date, -3, 'day');
->>>>>>> 0.17.0
 
     case navigate.NEXT:
       return dates.add(date, 3, 'day')
