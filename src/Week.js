@@ -25,10 +25,10 @@ class Week extends React.Component {
 Week.navigate = (date, action) => {
   switch (action){
     case navigate.PREVIOUS:
-      return dates.add(date, -1, 'week');
+      return dates.add(date, -3, 'day');
 
     case navigate.NEXT:
-      return dates.add(date, 1, 'week')
+      return dates.add(date, 3, 'day')
 
     default:
       return date;
@@ -37,8 +37,8 @@ Week.navigate = (date, action) => {
 
 Week.range = (date, { culture }) => {
   let firstOfWeek = localizer.startOfWeek(culture)
-  let start = dates.startOf(date, 'week', firstOfWeek)
-  let end = dates.endOf(date, 'week', firstOfWeek)
+  let start = dates.add(date, -3, 'day')
+  let end = dates.add(date, 3, 'day')
 
   return dates.range(start, end)
 }
